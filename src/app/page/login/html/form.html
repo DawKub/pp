@@ -1,0 +1,35 @@
+<div class = "container-fluid form">
+
+  <div class="window">
+
+    <form role="form" (submit)="login($event, username.value, password.value)"
+          id="login" name="login"
+          class="formDisplay">
+
+      <h3 class="header">
+        Page not available<br>
+        To watch log in
+      </h3>
+
+      <div class="form-group">
+        <input type="text" #username
+               class="form-control"
+               id="username"  name="username"
+               placeholder="Login" required autofocus>
+      </div>
+
+      <div class="form-group">
+        <input type="password" #password
+               class="form-control"
+               id="password"  name="password"
+               placeholder="Hasło" required>
+      </div>
+
+      <div class="row">
+        <button type="submit" class="btn btn-primary">Zaloguj się</button>
+        <a [routerLink]="['/register']">Załóż konto</a>
+      </div>
+    </form>
+  </div>
+
+</div>

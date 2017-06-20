@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+
+body
+{
+  color: #000;
+  background: url('resource/images/bg.jpg') no-repeat;
+}
+/* Link display */
+a:link{
+  text-decoration: none;
+  color: #000;
+}
+
+a:hover{
+  text-decoration: none;
+  color: #0f0;
+}
+
+a:visited{
+  text-decoration: none;
+  color: #000;
+}
+
+a:active{
+  text-decoration: none;
+  color: #0f0;
+}
