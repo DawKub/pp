@@ -18,7 +18,7 @@ export class Login {
     let headers = new Headers({'Content-Type' : 'application/json'});
     let options = new RequestOptions({ headers : headers });
     console.log(body);
-    this.http.post('http://localhost:8080/rest/login', body, options)
+    this.http.post('http://localhost:8080/rest/login', body, { headers: contentHeaders })
       .subscribe(
         response => {
           //localStorage.setItem('id_', response.json().sta tus);
