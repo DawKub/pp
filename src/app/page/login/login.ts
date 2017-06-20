@@ -15,8 +15,8 @@ export class Login {
   login(event, username, password) {
     event.preventDefault();
     let body = JSON.stringify({ username, password });
-    let headers = new Headers({'Content-Type' : 'application/json'});
-    let options = new RequestOptions({ headers : headers });
+    console.log(contentHeaders);
+
     console.log(body);
     this.http.post('http://localhost:8080/rest/login', body, { headers: contentHeaders })
       .subscribe(
