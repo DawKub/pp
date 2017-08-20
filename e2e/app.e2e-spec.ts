@@ -1,16 +1,14 @@
-import { AngularPage } from './app.po';
+import { AppPage } from './app.po';
 
-describe('angular App', () => {
-  let page: AngularPage;
+describe('p App', () => {
+  let page: AppPage;
 
   beforeEach(() => {
-    page = new AngularPage();
+    page = new AppPage();
   });
 
-  it('should display welcome message', done => {
+  it('should display welcome message', () => {
     page.navigateTo();
-    page.getParagraphText()
-      .then(msg => expect(msg).toEqual('Welcome to app!!'))
-      .then(done, done.fail);
+    expect(page.getParagraphText()).toEqual('Welcome to app!');
   });
 });

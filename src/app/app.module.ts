@@ -1,55 +1,58 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import {Http, HttpModule, RequestOptions} from '@angular/http';
+import { HttpModule } from '@angular/http';
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
-import {AUTH_PROVIDERS, AuthConfig, AuthHttp} from 'angular2-jwt';
 import { AuthGuard } from './common/auth.guard';
-import { routes } from './app.routes';
+import { AuthModule } from './common/auth.module';
+import { appRoutes } from './app.routes';
 
-import { App } from './app.component';
-import { Home } from './page/home/home';
-import { Login } from './page/login/login';
-import { Register } from './page/register/register';
+import { AppComponent } from './app.component';
+import { Welcome } from './pages/welcome/welcome';
+import { Login } from './pages/login/login';
+import { Register } from './pages/register/register';
 
-//Elements
+import { Profile } from './pages/profile/profile';
+import { ProfileEdit } from './pages/profile-edit/profile_edit';
+import { Friends } from './pages/friends/friends';
+import { Adv } from './pages/adv/adv';
+
+// Elements
 import { Navbar   } from './component/navbar/navbar';
+import { Navigation   } from './component/navigation/navigation';
 import { About } from './component/about/about';
 import { Copyright } from './component/copyright/copyright';
 
-
-export function authHttpServiceFactory(http: Http, options: RequestOptions) {
-  return new AuthHttp(new AuthConfig({
-    tokenName: 'token',
-    tokenGetter: (() => localStorage.getItem('token')),
-    globalHeaders: [{'Content-Type':'application/json'}],
-  }), http, options);
-}
-
 @NgModule({
+  bootstrap: [AppComponent],
   declarations: [
-    App,
-    Home,
+    AppComponent,
+    // pages not logged in
+    Welcome,
     Login,
     Register,
-
+    // pages logged in
+    Profile,
+    ProfileEdit,
+    Friends,
+    Adv,
+    // additional components
     Navbar,
+    Navigation,
     About,
     Copyright
   ],
   imports: [
-    HttpModule, BrowserModule, FormsModule,
-    RouterModule.forRoot(routes)
+    BrowserModule, HttpModule, FormsModule,
+    AuthModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     AuthGuard,
-    {
-      provide: AuthHttp,
-      useFactory: authHttpServiceFactory,
-      deps: [Http, RequestOptions]
-    }
-  ],
-  bootstrap: [App]
+    AuthModule
+  ]
+
 })
 export class AppModule { }

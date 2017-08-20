@@ -1,0 +1,95 @@
+<div class="row">
+	<div class="col-lg-4">
+		<div class="row">
+            <!--Avatar-->
+            <div class="row">
+                <a routerLink="/profile" routerLinkActive="active">
+					<img src={{profile.photo_url}}
+                        class="media-object img-responsive center-block"/>
+                </a>
+            </div>
+			<div class="row">
+				<!-- Name -->
+				{{ profile.firstName }} {{ profile.lastName}}
+				<button class="btn" *ngIf="buttonEnabled"> Zaproś do znajomych </button>
+				<button class="btn" *ngIf="buttonEnabled"> Zaproś na spacer </button>
+			</div>
+
+			<div class="row">
+				<span class="glyphicon glyphicon-cog"></span> Zmień dane
+            </div>
+
+			<!-- Nawigacja -->
+			<div class="row">
+        <a href="/Main">
+          <p>
+            <span class="glyphicon glyphicon-home"></span>
+            Aktualności
+          </p>
+        </a>
+      </div>
+
+      <div class="row">
+        <a href="/Friends">
+          <p>
+            <span class="glyphicon glyphicon-user"></span>
+            Znajomi
+          </p>
+        </a>
+      </div>
+
+      <div class="row">
+                <a href="/adv">
+                    <p>
+                        <span class="glyphicon glyphicon-list-alt"></span>
+                        Ogłoszenia
+                    </p>
+                </a>
+            </div>
+
+            <div class="row">
+                <a href="/stroll">
+                    <p>
+                        <span class="glyphicon glyphicon-calendar"></span>
+                        Spacery
+                    </p>
+                </a>
+            </div>
+
+            </div>
+
+        </div>
+
+	</div>
+
+	<div class="col-lg-8">
+	<!-- Profile data -->
+		<ul class="nav nav-tabs nav-justified">
+			<li class="active">
+                <a data-toggle="tab" href="#info">
+                    Informacje
+                </a>
+            </li>
+			<li>
+				<a data-toggle="tab" href="#adv">
+                    Ogłoszenia
+                </a>
+			</li>
+		</ul>
+
+
+		<div class="tab-content">
+			<div id="info" class="tab-pane fade in active">
+				<h3> o Mnie </h3>
+
+				{{ profile.desc }}
+			</div>
+
+			<div id="event" class="tab-pane fade">
+				<h3> Ogłoszenia </h3>
+				{{ getAdv() }}
+			</div>
+
+		</div>
+
+	</div>

@@ -1,0 +1,64 @@
+<ul class="nav nav-tabs nav-justified">
+  <li class="nav-item active">
+    <a data-toggle="tab" href="#adv">
+      Twoje ogłoszenia
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a data-toggle="tab" href="#advFreinds">
+      Znajomych ogłoszenia
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a data-toggle="tab" href="#advAll">
+      Wszystkie ogłoszenia
+    </a>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div id="adv" class="tab-pane fade in active">
+    <h3>Twoje ogłoszenia</h3>
+
+    <ul>
+      <li *ngFor="adv in advUser">
+        {{adv.strollStartTime}} - {{adv.strollEndTime}}
+        <p>
+          {{adv.description}}
+        </p>
+      </li>
+    </ul>
+
+  </div>
+
+  <div id="advFriends" class="tab-pane fade">
+    <h3>Ogłoszenia znajomych</h3>
+
+    <ul>
+      <li *ngFor="adv in advFriends">
+        {{advFriends.strollStartTime}} - {{advFriends.strollEndTime}}
+        <p>
+          {{advFriends.description}}
+        </p>
+      </li>
+    </ul>
+
+  </div>
+
+  <div id="advAll" class="tab-pane fade">
+    <h3>Ogłoszenia znajomych</h3>
+
+    <ul>
+      <li *ngFor="adv in advAll">
+        {{advAll.strollStartTime}} - {{advAll.strollEndTime}}
+        <p>
+          {{advAll.description}}
+        </p>
+      </li>
+    </ul>
+
+  </div>
+
+  </div>

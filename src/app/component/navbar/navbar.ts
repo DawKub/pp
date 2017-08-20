@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-
-//import { Login_Bar } from './../login/login_bar.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'navbar',

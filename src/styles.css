@@ -2,7 +2,7 @@
 body
 {
   color: #000;
-  background: url('resource/images/bg.jpg') no-repeat;
+  background: url('assets/images/bg.jpg') no-repeat;
 }
 /* Link display */
 a:link{
