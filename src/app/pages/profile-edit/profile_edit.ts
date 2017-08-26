@@ -6,7 +6,7 @@ import { AuthHttp, JwtHelper } from 'angular2-jwt';
 @Component({
   selector: 'profile_edit',
   templateUrl: './profile_edit.html',
-  styles: [ 'profile_edit.css' ]
+  styleUrls: [ 'profile_edit.css' ]
 })
 
 export class ProfileEdit implements OnInit {
@@ -17,9 +17,8 @@ export class ProfileEdit implements OnInit {
     this.token = localStorage.getItem('auth_token');
   }
 
+  
   ngOnInit(): void {
-    this.http.get('localhost:8080/user').subscribe(data => {
-      this.profile = data;
-    });
+
   }
 }

@@ -16,12 +16,12 @@ export class Login {
     event.preventDefault();
     const body = JSON.stringify({ username, password });
 
-    console.log(body);
     this.http.post('http://localhost:8080/rest/login', body, { headers: contentHeaders })
       .subscribe(
         response => {
-          localStorage.setItem('auth_token', 'log');
-          this.router.navigate(['profile']);
+			alert(response.status);
+			localStorage.setItem('auth_token', 'log');
+			this.router.navigate(['profile']);
         },
         error => {
           alert('Niepoprawny login lub niepoprawne hasło');

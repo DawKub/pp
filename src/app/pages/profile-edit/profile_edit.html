@@ -1,95 +1,123 @@
-<div class="row">
-	<div class="col-lg-4">
-		<div class="row">
-            <!--Avatar-->
-            <div class="row">
-                <a routerLink="/profile" routerLinkActive="active">
-					<img src={{profile.photo_url}}
-                        class="media-object img-responsive center-block"/>
-                </a>
-            </div>
-			<div class="row">
-				<!-- Name -->
-				{{ profile.firstName }} {{ profile.lastName}}
-				<button class="btn" *ngIf="buttonEnabled"> Zaproś do znajomych </button>
-				<button class="btn" *ngIf="buttonEnabled"> Zaproś na spacer </button>
+<div class="container">
+	<div class="row">
+
+		<div class="col-lg-2" style="border: solid 1px #fff">
+			<div>
+				<a routerLink="/profile">
+					<img src="{{profile.photo_url}}" 
+						class="img img-responsive avatar"/>
+				</a>			
+				{{profile.firstName}} {{profile.lastName}}
 			</div>
-
-			<div class="row">
-				<span class="glyphicon glyphicon-cog"></span> Zmień dane
-            </div>
-
-			<!-- Nawigacja -->
-			<div class="row">
-        <a href="/Main">
-          <p>
-            <span class="glyphicon glyphicon-home"></span>
-            Aktualności
-          </p>
-        </a>
-      </div>
-
-      <div class="row">
-        <a href="/Friends">
-          <p>
-            <span class="glyphicon glyphicon-user"></span>
-            Znajomi
-          </p>
-        </a>
-      </div>
-
-      <div class="row">
-                <a href="/adv">
-                    <p>
-                        <span class="glyphicon glyphicon-list-alt"></span>
-                        Ogłoszenia
-                    </p>
-                </a>
-            </div>
-
-            <div class="row">
-                <a href="/stroll">
-                    <p>
-                        <span class="glyphicon glyphicon-calendar"></span>
-                        Spacery
-                    </p>
-                </a>
-            </div>
-
-            </div>
-
-        </div>
-
-	</div>
-
-	<div class="col-lg-8">
-	<!-- Profile data -->
-		<ul class="nav nav-tabs nav-justified">
-			<li class="active">
-                <a data-toggle="tab" href="#info">
-                    Informacje
-                </a>
-            </li>
-			<li>
-				<a data-toggle="tab" href="#adv">
-                    Ogłoszenia
-                </a>
-			</li>
-		</ul>
-
-
-		<div class="tab-content">
-			<div id="info" class="tab-pane fade in active">
-				<h3> o Mnie </h3>
-
-				{{ profile.desc }}
-			</div>
-
-			<div id="event" class="tab-pane fade">
-				<h3> Ogłoszenia </h3>
-				{{ getAdv() }}
-			</div>
-
+			<navigation> Loading navigation</navigation>
 		</div>
+		
+		<div class="col-lg-8 mx-auto" style="border: solid 1px #fff">
+			
+			<div class="row">
+				<div class="col-lg-6" style="border: solid 1px #fff">
+					<h3> Zmiana hasła </h3>
+					<form role="form"
+						id="updatePassword" name="updatePassword">
+						<div class="form-group">
+							<input type="password" #oldPassword
+								class="form-control"
+								id="oldPassword"  name="oldPassword"
+								placeholder="Aktualne hasło" required>
+								
+							<input type="password" #newPassword
+								class="form-control"
+								id="newPassword"  name="newPassword"
+								placeholder="Nowe hasło" required>
+								
+							<input type="password" #confirmPassword
+								class="form-control"
+								id="confirmPassword"  name="confirmPassword"
+								placeholder="Potwierdź nowe hasło hasło" required>
+								
+							<button class="btn btn-primary" type="submit">
+								Zmień hasło
+							</button>
+						</div>
+					</form>					
+				</div>
+				
+				<div class="col-lg-6" style="border: solid 1px #fff">
+					<h3> Zmiana e-maila </h3>
+					<form role="form"
+						id="updateMail" name="mail">
+						<div class="form-group">
+							<input type="mail" #mail
+								class="form-control"
+								id="mail"  name="mail"
+								placeholder="{{profile.mail}}" required>
+								
+							<button class="btn btn-primary" type="submit">
+								Zmień e-mail
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+			<div class="row" style="border: solid 1px #fff">
+				<h3> Zmień dane osobowe </h3>
+				<br>
+				<form role="form" 
+					id="updateData" name="mail">
+					
+					Dane osobowe
+					<div class="form-group form-inline">
+						<input type="text" #firstName
+							class="form-control"
+							id="firstName"  name="firstName"
+							placeholder="{{profile.firstName}}" required >
+					
+						<input type="text" #lastName
+							class="form-control"
+							id="lastName"  name="lastName"
+							placeholder="{{profile.lastName}}" required >
+					</div>
+					
+					<div class="form-group">
+					Miasto
+						<input type="text" #city
+							class="form-control"
+							id="city"  name="city"
+							placeholder="{{profile.city}}" required >
+					Data urodzenia
+						<input type="text" #date
+							class="form-control"
+							id="date"  name="date"
+							onfocus="(this.type='date')"
+							placeholder="{{profile.date}}" required>
+					</div>
+								
+					<button class="btn btn-primary" type="submit">
+						Zmień dane
+					</button>
+				</form>	
+			</div>
+				
+			<div class="row" style="border: solid 1px #fff">
+				<h3> Zmień dane konta </h3>
+					
+				<form role="form"
+					id="description" name="description">
+					Zmiana opisu
+					<textarea class="form-control" #description
+						id="description" name="description">{{profile.description}}</textarea>
+					<button class="btn btn-primary" type="submit">
+						Zmień opis
+					</button>
+				</form>
 
+			</div>
+			
+		</div>
+		
+		<div class="col-lg-2 mx-auto" style="border: solid 1px #fff">
+			czat
+		</div>
 	</div>
+</div>

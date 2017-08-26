@@ -19,7 +19,7 @@ export const appRoutes: Routes = [
   { path: 'register', component: Register },
   // Logged
   { path: 'profile', component: Profile },
-  { path: 'profile/edit', component: ProfileEdit, canActivate: [AuthGuard] },
+  { path: 'profile/edit', component: ProfileEdit },
   { path: 'friends', component: Friends, canActivate: [AuthGuard] },
   { path: 'adv', component: Adv, canActivate: [AuthGuard] },
 
