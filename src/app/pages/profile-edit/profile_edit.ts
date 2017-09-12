@@ -1,24 +1,31 @@
 import { Component, OnInit  } from '@angular/core';
 import { Http } from '@angular/http';
 import { RouterModule, Router  } from '@angular/router';
-import { AuthHttp, JwtHelper } from 'angular2-jwt';
+
+import {ProfileData} from '../../model/profileData';
 
 @Component({
   selector: 'profile_edit',
   templateUrl: './profile_edit.html',
-  styleUrls: [ 'profile_edit.css' ]
+  styles: [ 'profile_edit.css' ]
 })
 
 export class ProfileEdit implements OnInit {
-  profile: Object;
-  token: string;
-  buttonEnabled: boolean;
-  constructor(public router: Router, public http: Http, public authHttp: AuthHttp) {
-    this.token = localStorage.getItem('auth_token');
+  public profile = new ProfileData();
+  avatar = [];
+  constructor(public router: Router, public http: Http) {
+
   }
 
-  
   ngOnInit(): void {
-
+    this.http.get('http://localhost:8080/user', {withCredentials: true})
+      .subscribe(response => {
+        this.profile = response.json();
+        console.log(this.profile);
+      });
+    this.http.get('http://localhost:8080/profile/photo', {withCredentials: true})
+      .subscribe(response => {
+        this.avatar = response.json();
+      });
   }
 }

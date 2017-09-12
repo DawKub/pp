@@ -1,10 +1,5 @@
-.avatar 
+.avatar
 {
-	width: 150px;
-	height: 150px;
-}
-
-.data
-{
-	text-align: center;
+  width: 100%;
+  max-height: 200px
 }

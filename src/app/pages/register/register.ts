@@ -13,15 +13,13 @@ export class Register {
   }
 
   register(event, nick, password, mail, fistName, lastName, city, date) {
-	  
     event.preventDefault();
     const body = JSON.stringify({ nick, password, mail, fistName, lastName, city, date });
-	alert(body);
-    this.http.post('http://localhost:8080/registration', body, { headers: contentHeaders })
+    this.http.post('http://localhost:8080/register', body, { headers: contentHeaders })
       .subscribe(
         response => {
-			alert("Konto zostało utworzone");
-          this.router.navigate(['']);
+          localStorage.setItem('id_token', response.json().id_token);
+          this.router.navigate(['home']);
         },
         error => {
           alert(error.text());

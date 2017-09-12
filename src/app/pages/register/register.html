@@ -1,72 +1,71 @@
-<div class="container window">
+<div class="header">
+  <h3>
+    Załóż konto
+  </h3>
+  <p>Już dziś dołącz do naszej społeczności i załóż konto</p>
+</div>
 
-	<div class="header">
-		<h3>
-			Załóż konto
-		</h3>
-		<p>Już dziś dołącz do naszej społeczności i załóż konto</p>
-	</div>
-	
-	<div class="data">
-		
-		<form role="form"
-          (submit)="register($event, nick.value, password.value, mail.value, firstName.value, lastName.value, city.value, date.value)"
-          id="register" name="register">
+<div class="data">
 
-		<!-- Imie i nazwisko -->
-		<div class="form-group form-inline">
-			<input type="text" #firstName
-				class="form-control"
-				id="firstName"  name="firstName"
-				placeholder="Imie" required >
-					
-			<input type="text" #lastName
-                class="form-control"
-                id="lastName"  name="lastName"
-                placeholder="Nazwisko" required >
-		</div>
+  <form role="form"
+        (submit)="register($event, nick.value, password.value, mail.value, firstName.value, lastName.value, city.value, date.value)"
+        id="register" name="register">
 
-		<!-- Data urodzenia i miasto -->
-		<div class="form-group">
-			<input type="text" #date
-               class="form-control"
-               id="date"  name="date"
-			   onfocus="(this.type='date')"
-               placeholder="Data urodzenia" required>
-			<input type="text" #city
-               class="form-control"
-               id="city"  name="city"
-               placeholder="Miasto" required>
-		</div>
-			
-		<!-- Login data -->	
-		<div class="form-group">
-			<input type="text" #nick
-               class="form-control"
-               id="nick"  name="nick"
-               placeholder="Login" required>
+  <!-- Imie i nazwisko -->
+  <div class="form-group form-inline">
+    <input type="text" #firstName
+      class="form-control"
+      id="firstName"  name="firstName"
+      placeholder="Imie" required >
 
-			<input type="password" #password
-				class="form-control"
-				id="password"  name="password"
-				placeholder="Hasło" required>
+    <input type="text" #lastName
+              class="form-control"
+              id="lastName"  name="lastName"
+              placeholder="Nazwisko" required >
+  </div>
 
-			<input type="mail" #mail
-				class="form-control"
-				id="mail"  name="mail"
-				placeholder="Mail" required>
-		</div>
-		
-		<!-- Akceptowanie regulaminu-->
-        <p>
-        Klikając przycisk Rejestracja, akceptujesz nasz Regulamin oraz potwierdzasz zapoznanie się z Zasadami dotyczącymi danych, w tym z Zasadami stosowania plików cookie.
-        </p>
-		
-		<button type="submit" class="btn btn-primary">Załóż konto</button>
-		
-		</form>
-		
-	</div>
-	
+  <!-- Data urodzenia i miasto -->
+  <div class="form-group">
+    <input type="text" #date
+             class="form-control"
+             id="date"  name="date"
+       onfocus="(this.type='date')"
+             placeholder="Data urodzenia" required>
+    <input type="text" #city
+             class="form-control"
+             id="city"  name="city"
+             placeholder="Miasto" required>
+  </div>
+
+  <!-- Login data -->
+  <div class="form-group">
+    <input type="text" #nick
+             class="form-control"
+             id="nick"  name="nick"
+             placeholder="Login" required>
+
+    <input type="password" #password
+      class="form-control"
+      id="password"  name="password"
+      placeholder="Hasło" required>
+
+    <input type="mail" #mail
+      class="form-control"
+      id="mail"  name="mail"
+      placeholder="Mail" required>
+  </div>
+
+  <!-- Akceptowanie regulaminu-->
+      <p>
+      Klikając przycisk Rejestracja, akceptujesz nasz Regulamin oraz potwierdzasz zapoznanie się z Zasadami dotyczącymi danych, w tym z Zasadami stosowania plików cookie.
+      </p>
+
+  <button type="submit" class="btn btn-primary">Załóż konto</button>
+
+  </form>
+
+  <p class="centered">Masz już u nas konto</p>
+  <button class="btn btn-primary" routerLink="/login">Zaloguj się</button>
 
 </div>
+

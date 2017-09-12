@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { CookieModule } from 'ngx-cookie';
 
 import { AuthGuard } from './common/auth.guard';
 import { AuthModule } from './common/auth.module';
@@ -47,7 +48,8 @@ import { Copyright } from './component/copyright/copyright';
   imports: [
     BrowserModule, HttpModule, FormsModule,
     AuthModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    CookieModule.forRoot()
   ],
   providers: [
     AuthGuard,

@@ -2,25 +2,33 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Http } from '@angular/http';
 import { contentHeaders } from './../../common/headers';
-
+import {ProfileData} from '../../model/profileData';
 @Component({
   selector: 'friends',
   templateUrl: './friends.html'
 })
 export class Friends implements OnInit {
-  constructor(public router: Router, public http: Http) {
-  }
-
-  profile: Object;
-  friends: Object;
+  public profile = new ProfileData();
+  avatar = [];
+  friends = new ProfileData();
+  constructor(public router: Router, public http: Http) {}
 
   ngOnInit(): void {
-    this.http.get('localhost:8080/user').subscribe(data => {
-      this.profile = data;
-    });
-    this.http.get('localhost:8080/friends').subscribe(data => {
-      this.friends = data;
-    });
+    this.http.get('http://localhost:8080/user', {withCredentials: true})
+      .subscribe(response => {
+        this.profile = response.json();
+      },
+        error => {
+          this.router.navigate(['login']);
+        });
+    this.http.get('http://localhost:8080/profile/photo', {withCredentials: true})
+      .subscribe(response => {
+        this.avatar = response.json();
+      });
+    this.http.get('http://localhost:8080/friends', {withCredentials: true})
+      .subscribe(response => {
+        this.friends = response.json();
+      });
   }
 
 }

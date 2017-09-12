@@ -1,60 +1,65 @@
-<div class="container">
-	<div class="row">
+<div class="row">
+  <div class="col-lg-2 box">
+    {{avatar}}
+    <p>{{profile.firstName}} {{profile.lastName}}</p>
+    <div *ngIf="buttonEnabled">
+      <button class="btn btn-primary">Zaproś do znajomych</button>
+    </div>
+    <!--Nawigacja-->
 
-		<div class="col-lg-2" style="border: solid 1px #fff">
-			<div>
-				<a routerLink="/profile">
-					<img src="{{profile.photo_url}}" 
-						class="img img-responsive avatar"/>
-				</a>
-				{{profile.firstName}} {{profile.lastName}}
-			</div>
-			
-			<div class="invite" *ngIf="canInvite">
-				<button class="btn"> Zaproś do znajomych </button>
-				<button class="btn"> Zaproś na spacer </button>
-			</div>
-			
-			<div class="invite" *ngIf="!canInvite">
-				<button class="btn btn-primary" (click)="profile_edit()"> Edytuj profil </button>
-			</div>
-			
-			<navigation> Loading navigation</navigation>
-		</div>
-		
-		<div class="col-lg-8 mx-auto" style="border: solid 1px #fff">
-			
-			<ul class="nav nav-tabs nav-justified">
-				<li class="nav active">
-					<a data-toggle="tab" href="#info">
-						Informacje
-					</a>
-				</li>
-				<li class="nav">
-					<a data-toggle="tab" href="#adv">
-						Ogłoszenia
-					</a>
-				</li>
-			</ul>
-			
-			<div class="tab-content">
-				<div id="info" class="tab-pane fade in active">
-					<div class="data">
-						<h3> O mnie </h3>
-					</div>
-				</div>
+    <navigation></navigation>
 
-				<div id="adv" class="tab-pane fade">
-					<div class="data">
-						<h3> Moje ogłoszenia </h3>
-					</div>				
-				</div>
-			</div>
-			
-		</div>
-		
-		<div class="col-lg-2 mx-auto" style="border: solid 1px #fff">
-			czat
-		</div>
-	</div>
+  </div>
+
+  <div class="col-lg-10 mx-auto box">
+
+    <ul class="nav nav-tabs nav-justified">
+      <li class="nav active">
+        <a data-toggle="tab" href="#info">
+          Informacje
+        </a>
+      </li>
+      <li class="nav">
+        <a data-toggle="tab" href="#adv">
+          Ogłoszenia
+        </a>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="info" class="tab-pane fade in active">
+        <div class="data">
+          <h3> O mnie </h3>
+
+          {{profile.description}}
+
+        </div>
+      </div>
+
+      <div id="adv" class="tab-pane fade">
+        <div class="data">
+          <h3> Moje ogłoszenia </h3>
+
+          <div class="col-lg-3 adv" *ngFor="let stroll of adv">
+            <div class="title">
+              <h3>{{stroll.description}}</h3>
+            </div>
+            <div class="stroll-date">
+              {{stroll.strollStartTime}} - {{stroll.strollEndtTime}}
+            </div>
+
+            <div class="location">
+              {{stroll.location.description}}
+            </div>
+
+            <div class="expiration">
+              {{stroll.adEndTime}}
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>

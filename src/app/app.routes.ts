@@ -19,11 +19,13 @@ export const appRoutes: Routes = [
   { path: 'register', component: Register },
   // Logged
   { path: 'profile', component: Profile },
-  { path: 'profile/edit', component: ProfileEdit },
-  { path: 'friends', component: Friends, canActivate: [AuthGuard] },
-  { path: 'adv', component: Adv, canActivate: [AuthGuard] },
+  { path: 'profile/edit', component: ProfileEdit},
+  { path: 'friends', component: Friends},
+  { path: 'adv', component: Adv },
+  // other user
+  { path: 'profile/:id', component: Profile},
 
   // other links
-  { path: '**',     component: Profile, canActivate: [AuthGuard] },
+  { path: '**',     component: Profile},
 ];
 // , canActivate: [AuthGuard] <- for autorized pages
