@@ -19,6 +19,8 @@ import { Profile } from './pages/profile/profile';
 import { ProfileEdit } from './pages/profile-edit/profile_edit';
 import { Friends } from './pages/friends/friends';
 import { Adv } from './pages/adv/adv';
+import { AdvShow } from './pages/adv-show/adv_show';
+import { AdvCreate } from './pages/adv-create/adv_create';
 
 // Elements
 import { Navbar   } from './component/navbar/navbar';
@@ -39,6 +41,8 @@ import { Copyright } from './component/copyright/copyright';
     ProfileEdit,
     Friends,
     Adv,
+    AdvShow,
+    AdvCreate,
     // additional components
     Navbar,
     Navigation,

@@ -17,9 +17,11 @@
     <div class="row">
     <!--Znajomi-->
       <div class="col-lg-3 friend" *ngFor="let friend of friends" style="border: 1px solid #fff">
-        <div class="name">
-          {{friend.firstName}} {{friend.lastName}}
-        </div>
+        <a [routerLink]="['/profile',{id:friend.user_id}]">
+          <div class="name">
+            {{friend.firstName}} {{friend.lastName}}
+          </div>
+        </a>
       </div>
 
     </div>

@@ -12,14 +12,13 @@ export class Register {
   constructor(public router: Router, public http: Http) {
   }
 
-  register(event, nick, password, mail, fistName, lastName, city, date) {
+  register(event, nick, password, mail, firstName, lastName, city, date) {
     event.preventDefault();
-    const body = JSON.stringify({ nick, password, mail, fistName, lastName, city, date });
-    this.http.post('http://localhost:8080/register', body, { headers: contentHeaders })
+    const body = JSON.stringify({ nick, password, mail, firstName, lastName, city, date });
+    this.http.post('http://localhost:8080/registration', body, { headers: contentHeaders })
       .subscribe(
         response => {
-          localStorage.setItem('id_token', response.json().id_token);
-          this.router.navigate(['home']);
+          alert('Konot założone');
         },
         error => {
           alert(error.text());

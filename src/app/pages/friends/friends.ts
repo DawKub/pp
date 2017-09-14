@@ -10,7 +10,7 @@ import {ProfileData} from '../../model/profileData';
 export class Friends implements OnInit {
   public profile = new ProfileData();
   avatar = [];
-  friends = new ProfileData();
+  friends = Object;
   constructor(public router: Router, public http: Http) {}
 
   ngOnInit(): void {

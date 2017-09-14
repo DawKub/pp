@@ -1,64 +1,91 @@
-<ul class="nav nav-tabs nav-justified">
-  <li class="nav-item active">
-    <a data-toggle="tab" href="#adv">
-      Twoje ogłoszenia
-    </a>
-  </li>
+<div class="row">
+  <div class="col-lg-2 box">
+    {{avatar}}
+    <p>{{profile.firstName}} {{profile.lastName}}</p>
+    <!--Nawigacja-->
 
-  <li class="nav-item">
-    <a data-toggle="tab" href="#advFreinds">
-      Znajomych ogłoszenia
-    </a>
-  </li>
+    <navigation></navigation>
 
-  <li class="nav-item">
-    <a data-toggle="tab" href="#advAll">
-      Wszystkie ogłoszenia
-    </a>
-  </li>
-</ul>
+  </div>
 
-<div class="tab-content">
-  <div id="adv" class="tab-pane fade in active">
-    <h3>Twoje ogłoszenia</h3>
+  <div class="col-lg-10 mx-auto box">
 
-    <!--<ul>
-      <li>
-        {{adv.strollStartTime}} - {{adv.strollEndTime}}
-        <p>
-          {{adv.description}}
-        </p>
+    <button class="btn btn-primary" (click)="create()">Stwórz nowe</button>
+
+    <ul class="nav nav-tabs nav-justified">
+      <li class="nav-item active">
+        <a data-toggle="tab" href="#adv">
+          Twoje ogłoszenia
+        </a>
       </li>
-    </ul>-->
 
-  </div>
-
-  <div id="advFriends" class="tab-pane fade">
-    <h3>Ogłoszenia znajomych</h3>
-
-  <!--  <ul>
-      <li>
-        {{advFriends.strollStartTime}} - {{advFriends.strollEndTime}}
-        <p>
-          {{advFriends.description}}
-        </p>
+      <li class="nav-item">
+        <a data-toggle="tab" href="#advFriends">
+          Znajomych ogłoszenia
+        </a>
       </li>
-    </ul>-->
+
+      <li class="nav-item">
+        <a data-toggle="tab" href="#advAll">
+          Wszystkie ogłoszenia
+        </a>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="adv" class="tab-pane fade in active">
+        <h3>Twoje ogłoszenia</h3>
+
+        <ul>
+          <li *ngFor="let adv of advUser">
+            <div class="row">
+              <div class="col-lg-8">
+                {{adv.strollStartTime}} - {{adv.strollEndTime}}
+                <p>
+                  {{adv.description}}
+                </p>
+              </div>
+              <div class="col-lg-3">
+                <button class="btn btn-primary" (click)="advShow(adv.adId)">Pokaż</button>
+              </div>
+            </div>
+
+
+          </li>
+        </ul>
+
+      </div>
+
+      <div id="advFriends" class="tab-pane fade">
+        <h3>Ogłoszenia znajomych</h3>
+
+        <ul>
+          <li *ngFor="let adv of advFriends">
+            {{adv.strollStartTime}} - {{adv.strollEndTime}}
+            <p>
+              {{adv.description}}
+            </p>
+          </li>
+        </ul>
+
+      </div>
+
+      <div id="advAll" class="tab-pane fade">
+        <h3>Ogłoszenia</h3>
+
+        <ul>
+          <li *ngFor="let adv of advAll">
+            {{adv.strollStartTime}} - {{adv.strollEndTime}}
+            <p>
+              {{adv.description}}
+            </p>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+
 
   </div>
-
-  <div id="advAll" class="tab-pane fade">
-    <h3>Ogłoszenia znajomych</h3>
-
-    <!--<ul>-->
-      <!--<li>-->
-        <!--{{advAll.strollStartTime}} - {{advAll.strollEndTime}}-->
-        <!--<p>-->
-          <!--{{advAll.description}}-->
-        <!--</p>-->
-      <!--</li>-->
-    <!--</ul>-->
-
-  </div>
-
-  </div>
+</div>

@@ -1,65 +1,38 @@
 <div class="row">
-  <div class="col-lg-2 box">
+  <div class="col-lg-3 box">
     {{avatar}}
-    <p>{{profile.firstName}} {{profile.lastName}}</p>
+    <p>{{ profile.firstName }} {{ profile.lastName}}</p>
     <div *ngIf="buttonEnabled">
-      <button class="btn btn-primary">Zaproś do znajomych</button>
-    </div>
-    <!--Nawigacja-->
+      <div *ngIf="isAlreadyFriend===0">
+        <button class="btn btn-primary" (click)="addFriend(profile.user_id)">Zaproś do znajomego</button>
+      </div>
+      <div *ngIf="isAlreadyFriend===1">
+        <button class="btn btn-primary" (click)="addFriend(profile.user_id)" disabled>Zaproś do znajomego</button>
+      </div>
 
+      <button class="btn btn-primary" (click)="inviteStroll(profile.user_id)">Zaproś na spacer</button>
+    </div>
+    <div *ngIf="!buttonEnabled">
+      <button class="btn btn-primary" (click)="editProfile()">Edycja konta</button>
+    </div>
+
+    <!--Nawigacja-->
     <navigation></navigation>
 
   </div>
 
-  <div class="col-lg-10 mx-auto box">
+  <div class="col-lg-9 mx-auto box">
 
-    <ul class="nav nav-tabs nav-justified">
-      <li class="nav active">
-        <a data-toggle="tab" href="#info">
-          Informacje
-        </a>
-      </li>
-      <li class="nav">
-        <a data-toggle="tab" href="#adv">
-          Ogłoszenia
-        </a>
-      </li>
-    </ul>
+    <div class="data box" style="margin-top: 10px">
+      <h3> O mnie </h3>
 
-    <div class="tab-content">
-      <div id="info" class="tab-pane fade in active">
-        <div class="data">
-          <h3> O mnie </h3>
+      <p>Imie Nazwisko: {{profile.firstName}} {{profile.lastName}}</p>
+      <p>Data urodzenia: {{profile.birth_date}}</p>
+      <p>Miasto: {{profile.city}}</p>
 
-          {{profile.description}}
+      <p>Pare zdań o mnie</p>
+      {{profile.description}}
 
-        </div>
-      </div>
-
-      <div id="adv" class="tab-pane fade">
-        <div class="data">
-          <h3> Moje ogłoszenia </h3>
-
-          <div class="col-lg-3 adv" *ngFor="let stroll of adv">
-            <div class="title">
-              <h3>{{stroll.description}}</h3>
-            </div>
-            <div class="stroll-date">
-              {{stroll.strollStartTime}} - {{stroll.strollEndtTime}}
-            </div>
-
-            <div class="location">
-              {{stroll.location.description}}
-            </div>
-
-            <div class="expiration">
-              {{stroll.adEndTime}}
-            </div>
-
-          </div>
-        </div>
-      </div>
     </div>
-
   </div>
 </div>

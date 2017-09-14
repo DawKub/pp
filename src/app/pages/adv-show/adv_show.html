@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-lg-3 box">
+    {{avatar}}
+    <p>{{ profile.firstName }} {{ profile.lastName}}</p>
+
+    <!--Nawigacja-->
+    <navigation></navigation>
+
+  </div>
+
+  <div class="col-lg-9 mx-auto box">
+
+    <div class="data box" style="margin-top: 10px">
+
+      <h3>Ogłoszenie</h3>
+      Autor: {{author.firstName}} {{author.lastName}}
+
+      <div *ngIf="author.user_id === profile.user_id">
+        <button class="btn btn-primary" (click)="advEdit(adv['adId'])">Edytuj</button>
+      </div>
+      <div *ngIf="author.user_id !== profile.user_id">
+        <button class="btn btn-primary" (click)="advJoin(adv)">Przyjmij</button>
+      </div>
+
+      <h4>Dane</h4>
+      {{adv['strollStartTime']}} - {{adv['strollEndTime']}}
+
+      <h4>Lokalizacja</h4>
+      Współrzędne
+      {{location['longtitude']}},{{adv['location'].latitude}}
+
+      <p>Opis miejsca</p>
+        <div class="location_desc" *ngIf="adv['location'].description !== null">
+          {{adv['location'].description}}
+        </div>
+        <div class="location_desc" *ngIf="!adv['location'].description !== null">
+          Brak
+        </div>
+
+
+
+
+    </div>
+  </div>
+</div>
