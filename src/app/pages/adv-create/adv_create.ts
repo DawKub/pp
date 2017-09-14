@@ -21,10 +21,11 @@ export class AdvCreate implements OnInit {
   }
 
   createAdv(user_id, location_latitude, location_longtitude,  location_description, description, strollStartTime, strollEndTime, privacy, adEndTime) {
-    const location = [];
-    location['latitude'] = location_latitude;
-    location['longtitude'] = location_longtitude;
-    location['description'] = location_description;
+    const location = {
+      latitude: location_latitude,
+      longtitude: location_longtitude,
+      description: location_description
+    };
 
     const body = JSON.stringify({ user_id, location, description, strollStartTime, strollEndTime, privacy, adEndTime });
     this.http.post('http://localhost:8080/adv', body, { headers: contentHeaders, withCredentials: true })
