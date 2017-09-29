@@ -21,6 +21,12 @@ import { Friends } from './pages/friends/friends';
 import { Adv } from './pages/adv/adv';
 import { AdvShow } from './pages/adv-show/adv_show';
 import { AdvCreate } from './pages/adv-create/adv_create';
+import { AdvEdit } from './pages/adv/adv_edit';
+
+import { Stroll } from './pages/stroll/stroll';
+import { StrollShow} from './pages/stroll/stroll_show';
+import { StrollInvite} from './pages/stroll/stroll_invite';
+import { StrollEdit} from './pages/stroll/stroll-edit';
 
 // Elements
 import { Navbar   } from './component/navbar/navbar';
@@ -43,6 +49,11 @@ import { Copyright } from './component/copyright/copyright';
     Adv,
     AdvShow,
     AdvCreate,
+    AdvEdit,
+    Stroll,
+    StrollShow,
+    StrollInvite,
+    StrollEdit,
     // additional components
     Navbar,
     Navigation,

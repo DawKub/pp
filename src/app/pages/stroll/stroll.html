@@ -1,1 +1,25 @@
+<div class="row">
+  <div class="col-lg-3 box">
+    {{avatar}}
+    <p>{{ profile.firstName }} {{ profile.lastName}}</p>
 
+    <!--Nawigacja-->
+    <navigation></navigation>
+
+  </div>
+
+  <div class="col-lg-9 mx-auto box">
+    <h2>Spacery</h2>
+      <ul>
+        <li *ngFor="let stroll of strolls">
+          {{stroll.data_start}} - {{stroll.data_end}}
+          Lokalizacja: {{stroll.location.latitude}},{{stroll.location.longtitude}}
+          {{stroll.info}}
+          <button class="btn btn-primary" (click)="strollShow(stroll.StrollId)">
+            Podgląd
+          </button>
+        </li>
+      </ul>
+
+  </div>
+</div>

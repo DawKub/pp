@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-lg-3 box">
+    {{avatar}}
+    <p>{{ profile.firstName }} {{ profile.lastName}}</p>
+
+    <!--Nawigacja-->
+    <navigation></navigation>
+
+  </div>
+
+  <div class="col-lg-9 mx-auto box">
+    <h2>Spacery - Zaproszenie</h2>
+    Zaproszenie do: {{invited.firstName}} {{invited.lastName}}
+
+    <form role="form" (submit)="inviteStroll(user_id.value, location_latitude.value, location_longtitude.value, location_description.value,
+    info.value, data_start.value, data_end.value, privacy.value)"
+          id="inviteStroll" name="inviteStroll">
+
+    <input type="hidden" value="{{profile.user_id}}" name="user_id" #user_id>
+    <div class="form-group">
+      <label for="data_start">
+        Początek spaceru
+      </label>
+      <input #data_start type="datetime-local" name="data_start" id="data_start" value="{{stroll.data_start}}">
+
+      <label for="data_end">
+        Koniec spaceru
+      </label>
+      <input #data_end type="datetime-local" name="data_end" id="data_end" value="{{stroll.data_end}}">
+    </div>
+
+    <div class="form-group">
+      Informacje
+      <textarea #info name="info" id="info" style="width: 100%">{{stroll.info}}</textarea>
+    </div>
+
+    <div class="form-group">
+      <h4>Lokalizacja</h4>
+      Współrzędne
+      <div class="form-inline">
+        <input type="number" name="latitude" id="latitude" #location_latitude value="{{stroll.location.latitude}}">
+        <input type="number" name="longtitude" id="longtitude" #location_longtitude value="{{stroll.location.lontitude}}">
+      </div>
+      Opis
+      <textarea #location_description name="location_description" id="location_description" style="width: 100%">{{stroll.location.description}}</textarea>
+
+    </div>
+    <div class="form-group">
+      Prywatność
+      <select name="privacy" #privacy value="{{stroll.privacy}}">
+        <option value="friends">Znajomi</option>
+        <option value="all">Wszyscy</option>
+      </select>
+    </div>
+
+    <button class="btn btn-primary" type="submit"> Zmień </button>
+    </form>
+  </div>
+</div>

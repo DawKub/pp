@@ -28,7 +28,7 @@ export class ProfileEdit implements OnInit {
 
   updateMail(mail) {
     const body = JSON.stringify({ mail});
-    console.log(body);
+      console.log(body);
     this.http.post('http://localhost:8080/user/updateMail', body, { headers: contentHeaders, withCredentials: true})
       .subscribe(
         response => {
